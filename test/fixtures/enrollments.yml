@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  cohort: 
+  prework_done: false
+  paid_amount: 9.99
+
+two:
+  user: 
+  cohort: 
+  prework_done: false
+  paid_amount: 9.99

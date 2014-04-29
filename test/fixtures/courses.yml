@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  instructors_req: 1
+  duration_weeks: 1
+
+two:
+  name: MyString
+  instructors_req: 1
+  duration_weeks: 1

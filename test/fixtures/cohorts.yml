@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  iteration: 1
+  course: 
+  start_date: 2014-04-28
+
+two:
+  iteration: 1
+  course: 
+  start_date: 2014-04-28
