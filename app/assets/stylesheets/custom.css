@@ -23,6 +23,10 @@ menu {
   padding: 0;
 }
 
+.actions {
+  margin: 10px 0;
+}
+
 menu form {
   display: inline;
 }
