@@ -27,7 +27,7 @@ menu form {
   display: inline;
 }
 
-#index_cars {
+#locations {
   display: inline-block;
   width: 100%;
   padding-bottom: 50px;
@@ -39,8 +39,8 @@ menu form {
   display: inline;
 }
 
-.index_car_port {
-  width: 218px;
+.location_port {
+  width: 400px;
   padding: 1%;
   margin: 10px 10px 0 0;
   box-sizing: border-box;
@@ -51,117 +51,28 @@ menu form {
   vertical-align: top;
 }
 
-#index_car_image {
-  width: 200px;
-  height:125px;
-  background-size: 200px ;
-  background-position: center;
-  border-radius: 5px;
-}
-
-.index_car_port h2 {
+.location_port h2 {
   margin: 0 0 10px 0;
   min-height: 40px;
   font-size: 20px;
   color: #0f92bd;
 }
 
-.index_car_port p {
+.location_port p {
   color: #a9a9a9;
   margin: 0;
   font-weight: 300;
 }
 
-#colour_label {
-}
 
-#index_car_colour {
-  height: 20px;
-  width: 20px;
-  border-radius: 3px;
-  border: 1px solid #eee;
-  display: inline-block;
-  margin: 10px 0 12px 10px;
-  vertical-align: middle;
-}
-
-.index_car_port form {
+.location_port form {
   display: inline-block;
 }
 
-.index_car_port .btn {
+.location_port .btn {
   padding: 0;
   font-size: 11px;
   width: 50px;
   font-weight: 300;
   margin-top: 20px;
-}
-
-.show_cars form {
-  display: inline-block;
-}
-
-.show_cars .btn {
-  padding: 0;
-  font-size: 11px;
-  width: 50px;
-  font-weight: 300;
-  margin-top: 20px;
-}
-
-
-#full_car_image {
-  width: 400px;
-  border-radius: 10px;
-  float: right;
-}
-
-#full_car_details {
-  width: 400px;
-}
-
-#full_car_details h2 {
-  font-size: 26px;
-  color: #0f92bd;
-}
-
-#full_car_details details p {
-  margin: 0.5px 0;
-}
-
-#full_car_notes {
-  padding: 30px 0 20px 0;
-  clear: both;
-  border-bottom: 1px solid #eee;
-}
-
-.index_engine_port {
-  width: 100%;
-  margin: 10px 10px 0 0;
-  box-sizing: border-box;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid #eee;
-  text-align: left;
-}
-
-.index_engine_port h2 {
-  display: inline-block;
-  margin: 0 20px 0 0;
-  min-width: 150px;
-}
-
-.index_engine_port p {
-  display: inline-block;
-  margin-right: 10px;
-  min-width: 170px;
-}
-
-.index_engine_port .btn {
-  margin-top: 0;
-}
-
-.index_engine_port div {
-  display: inline-block;
-  float: right;
 }

@@ -1,0 +1,20 @@
+<h2>GA Locations</h2>
+
+<section id='locations'>
+  <% @locations.each do |location| %>
+  <div class='location_port'>
+    
+    <h3><%= location.name %></h3>
+    
+    <% location.classrooms.each do |classroom| %>
+    <h4><%= classroom.name %></h4>
+    <p>Capacity: <%= classroom.capacity %></p>
+    <p>Facilities: <%= classroom.facilities %></p>
+    <% end %>
+
+    <%= button_to 'Edit', edit_location_path(location), method: :get, class: 'btn btn-default btn-xs' %>
+    <%= button_to 'Delete', location, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+
+  </div>
+  <% end %>
+</section>
