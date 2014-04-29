@@ -1,10 +1,12 @@
 ClassSchedulerApp::Application.routes.draw do
 
+  resources :dashboard
+
   resources :locations do
-    resources :courses
+    resources :classrooms
   end
 
-  root to: 'locations#index'
+  root to: 'dashboard#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

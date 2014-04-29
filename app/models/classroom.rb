@@ -3,7 +3,7 @@ class Classroom < ActiveRecord::Base
   has_many :bookings
   has_many :cohorts, through: :bookings
 
-  attr_accessible :capacity, :facilities, :location, :name
+  attr_accessible :capacity, :facilities, :location_id, :name
 
   private
   def details
