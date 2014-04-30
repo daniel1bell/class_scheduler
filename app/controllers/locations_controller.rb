@@ -12,7 +12,7 @@ class LocationsController < ApplicationController
     @location = Location.new(params[:location])
 
     if @location.save
-      redirect_to locations_path, notice: 'Location was successfully created.' 
+      redirect_to dashboard_index_path, notice: 'Location was successfully created.' 
     else
       render action: "new" 
     end
@@ -26,7 +26,7 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
 
     if @location.update_attributes(params[:location])
-      redirect_to locations_path, notice: 'Location was successfully updated.'
+      redirect_to dashboard_index_path, notice: 'Location was successfully updated.'
     else
       render action: 'edit'
     end
@@ -36,7 +36,7 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
     @location.destroy
 
-    redirect_to locations_path
+    redirect_to dashboard_index_path
   end
 
 end

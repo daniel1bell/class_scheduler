@@ -6,6 +6,10 @@ ClassSchedulerApp::Application.routes.draw do
     resources :classrooms
   end
 
+  resources :courses do
+    resources :cohorts
+  end
+
   root to: 'dashboard#index'
 
   # The priority is based upon order of creation:

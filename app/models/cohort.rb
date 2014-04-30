@@ -7,7 +7,7 @@ class Cohort < ActiveRecord::Base
   has_many :bookings
   attr_accessible :iteration, :start_date, :course_id
 
-  private
+  
   def name
     "#{course.name} - #{iteration}"
   end

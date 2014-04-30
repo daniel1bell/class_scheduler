@@ -9,7 +9,7 @@ class ClassroomsController < ApplicationController
     @classroom = @location.classrooms.create(params[:classroom])
 
     if @classroom.save
-      redirect_to root_path, notice: 'Classroom was successfully created.' 
+      redirect_to dashboard_index_path, notice: 'Classroom was successfully created.' 
     else
       render action: "new" 
     end
@@ -23,7 +23,7 @@ class ClassroomsController < ApplicationController
     @classroom = @location.classrooms.find(params[:id])
 
     if @classroom.update_attributes(params[:classroom])
-      redirect_to root_path, notice: 'Classroom was successfully updated.'
+      redirect_to dashboard_index_path, notice: 'Classroom was successfully updated.'
     else
       render action: 'edit'
     end
@@ -33,7 +33,7 @@ class ClassroomsController < ApplicationController
     @classroom = @location.classrooms.find(params[:id])
     @classroom.destroy
 
-    redirect_to locations_path
+    redirect_to dashboard_index_path
   end
 
   private

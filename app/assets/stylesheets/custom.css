@@ -13,7 +13,7 @@ header {
 }
 
 main {
-  width: 922px;
+  width: 70%;
   margin: 0 auto;
   margin-bottom: 150px;
 }
@@ -39,14 +39,11 @@ menu form {
   border-bottom: 3px solid gray;
 }
 
-#index_engines {
-  display: inline;
-}
 
 .location_port {
-  width: 400px;
+  width: 100%;
   padding: 1%;
-  margin: 10px 10px 0 0;
+  margin: 10px 0;
   box-sizing: border-box;
   border: 1px solid #eee;
   border-radius: 5px;
