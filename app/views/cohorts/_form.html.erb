@@ -18,10 +18,10 @@
 
   <div class='form-group'>
     <%= f.label :start_date %><br>
-    <%= f.date_select :start_date %>
+    <%= f.date_field :start_date %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => 'btn btn-default btn-xs' %>
   </div>
 <% end %>

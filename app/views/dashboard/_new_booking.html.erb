@@ -1,0 +1,19 @@
+<h2>New Booking</h2>
+
+<%= form_tag(new_booking_path, method: 'get') do %>
+
+  <div class='form-group booking_req'>
+    <%= label_tag(:classroom_id) %><br>
+    <%= collection_select(:booking, :classroom_id, Classroom.all, :id, :details) %>
+  </div>
+
+  <div class='form-group booking_req'>
+    <%= label_tag(:cohort_id) %><br>
+    <%= collection_select(:booking, :cohort_id, Cohort.all, :id, :name) %>
+  </div>
+
+  <div class='actions booking_req'>
+    <%= submit_tag 'Add Booking', :class => 'btn btn-default btn-xs' %>
+  </div>
+
+<% end %>

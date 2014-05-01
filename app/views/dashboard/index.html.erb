@@ -1,22 +1,5 @@
-<h2>New Booking <%= link_to 'View Bookings', bookings_path, class: 'btn btn-default btn-xs booking_req' %></h2>
-
-<%= form_tag(new_booking_path, method: 'get') do %>
-
-  <div class='form-group booking_req'>
-    <%= label_tag(:classroom_id) %><br>
-    <%= collection_select(:booking, :classroom_id, Classroom.all, :id, :details) %>
-  </div>
-
-  <div class='form-group booking_req'>
-    <%= label_tag(:cohort_id) %><br>
-    <%= collection_select(:booking, :cohort_id, Cohort.all, :id, :name) %>
-  </div>
-
-  <div class='actions booking_req'>
-    <%= submit_tag('Add Booking') %>
-  </div>
-
-<% end %>
+<%= render 'new_booking' %>
+<%= link_to 'View Bookings', bookings_path, class: 'btn btn-default btn-xs booking_req' %>
 
 <h2>GA Locations</h2>
 <%= button_to 'Add New Location', new_location_path, method: :get, class: 'btn btn-default btn-xs' %>
@@ -32,6 +15,7 @@
       <h4><%= link_to "#{classroom.name}",location_classroom_path(location, classroom)%></h4>
       <p>Capacity: <%= classroom.capacity %></p>
       <p>Facilities: <%= classroom.facilities %></p>
+      <p>Total Bookings: <%= classroom.bookings.count %></p>
     </div>
     <% end %>
 
@@ -58,7 +42,7 @@
     <% course.cohorts.each do |cohort| %>
     <div class='course_cohort_port'>
       <h4><%= link_to "#{cohort.name}",course_cohort_path(course, cohort)%></h4>
-      <p>Start Date: <%= cohort.start_date %></p>
+      <p>Start Date: <%= cohort.if_booked %></p>
       <p>Assigned Instructors: <%= cohort.instructors.count %></p>
       <p>Enrolled Students: <%= cohort.students.count %></p>
 

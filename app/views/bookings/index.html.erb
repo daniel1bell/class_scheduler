@@ -1,21 +1,25 @@
 <h2>GA Bookings</h2>
 
+<%= render '/dashboard/new_booking' %>
+
 <% @classrooms.each do |classroom| %>
 <div class='booking_index_classrooms'>
+  <% if !classroom.bookings.empty? %>
+    <h3><%= classroom.details %></h3>
 
-  <h3><%= classroom.details %></h3>
+    <% classroom.bookings.each do |booking| %>
+      <div class='booking_index_booking'>
+        <h4><%= booking.cohort.name %></h4>
+        <p>Start Date: <%= booking.start_date %></p>
+        <p>End Date: <%= booking.end_date %></p>
+        <p>Booking Capacity: <%= booking.class_size %> / <%= classroom.capacity %> <br><small>(<%= booking.cohort_instructors %> Instructors, <%= booking.cohort_students %> Students)</small></p>
 
-  <% classroom.bookings.each do |booking| %>
-  <div class='booking_index_booking'>
-    <h4><%= booking.cohort.name %></h4>
-    <p>Start Date: <%= booking.start_date %></p>
-    <p>End Date: <%= booking.end_date %></p>
-    <p>Booking Capacity: <%= booking.class_size %> / <%= classroom.capacity %> <small>(<%= booking.cohort_instructors %> Instructors, <%= booking.cohort_students %> Students)</small></p>
-
-    <%= button_to 'Edit', edit_booking_path(booking), method: :get, class: 'btn btn-default btn-xs' %>
-    <%= button_to 'Delete', booking, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
-  </div>
+        <%= button_to 'Edit', edit_booking_path(booking), method: :get, class: 'btn btn-default btn-xs' %>
+        <%= button_to 'Delete', booking, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+      </div>
+    <% end %>
   <% end %>
-
 </div>
 <% end %>
+
+<%= link_to 'Back', dashboard_index_path %>

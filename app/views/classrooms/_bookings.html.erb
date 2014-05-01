@@ -1,0 +1,37 @@
+<% if @classroom.bookings.empty? %>
+  <h3>No Bookings to Dsiplay</h3>
+  <p>There are no current bookings for <%= @classroom.details %>.</p>
+  <%= link_to 'Add Booking', bookings_path, class: 'btn btn-default btn-xs' %>
+
+<% else %>
+
+  <div class='classroom_bookings'>
+    <h3>Bookings</h3>
+
+    <table class='table table-striped'>
+
+      <col class='col_cohort_name'/>
+      <col class='col_cohort_start'/>
+      <col class='col_cohort_end'/>
+      <col class='col_cohort_instructors'/>
+
+      <tr>
+        <th>Cohort</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Instructors</th>
+        <th>Students</th>
+      </tr>
+      <% @classroom.bookings.each do |booking| %>
+        <tr>
+          <td><%= booking.cohort.name %></td>
+          <td><%= booking.start_date %></td>
+          <td><%= booking.end_date %></td>
+          <td><%= booking.cohort.instructor_names %></td>
+          <td><%= booking.cohort.students.count %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+<% end %>

@@ -15,4 +15,12 @@ class Booking < ActiveRecord::Base
     cohort_instructors + cohort_students
   end
 
+  def if_intended_start
+    intended_start = cohort.start_date
+    if intended_start
+      intended_start
+    else
+      lambda {Date.now}
+    end
+  end
 end

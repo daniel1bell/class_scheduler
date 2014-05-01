@@ -13,13 +13,13 @@
 
   <div class='form-group'>
     <%= f.label :start_date %><br>
-    <input type='date' name='booking[start_date]' >
+    <%= f.date_field :start_date, :value => @booking.if_intended_start %>
   </div>
 
   <%= f.hidden_field(:cohort_id, :value => @booking.cohort_id) %>
   <%= f.hidden_field(:classroom_id, :value => @booking.classroom_id) %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => 'btn btn-default btn-xs' %>
   </div>
 <% end %>

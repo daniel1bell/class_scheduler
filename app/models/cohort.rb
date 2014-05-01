@@ -12,4 +12,20 @@ class Cohort < ActiveRecord::Base
     "#{course.name} - #{iteration}"
   end
 
+  def if_booked
+    if !bookings.empty?
+      bookings.first.start_date
+    else
+      "Not Scheduled"
+    end
+  end
+
+  def instructor_names
+    names = []
+    instructors.each do |instructor|
+      names << instructor.name
+    end
+    names.join(', ')
+  end
+
 end
