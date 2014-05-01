@@ -1,12 +1,16 @@
 class ClassroomsController < ApplicationController
   before_filter :load_location
 
+  def show
+    @classroom = @location.classrooms.find(params[:id])
+  end
+
   def new
-    @classroom = @location.classrooms
+    @classroom = @location.classrooms.build
   end
 
   def create
-    @classroom = @location.classrooms.create(params[:classroom])
+    @classroom = @location.classrooms.new(params[:classroom])
 
     if @classroom.save
       redirect_to dashboard_index_path, notice: 'Classroom was successfully created.' 

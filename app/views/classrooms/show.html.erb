@@ -1,0 +1,7 @@
+<h2><%= @classroom.name %> <small>- <%= @location.name %></small></h2>
+      
+<p>Capacity: <%= @classroom.capacity %></p>
+<p>Facilities: <%= @classroom.facilities %></p>
+
+<%= button_to 'Edit', edit_location_classroom_path(@location, @classroom), method: :get, class: 'btn btn-default btn-xs' %>
+<%= button_to 'Delete', [@location, @classroom], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>

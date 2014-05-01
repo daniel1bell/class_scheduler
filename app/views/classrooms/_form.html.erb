@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class='field'>
+  <div class='form-group'>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
 
-  <div class='field'>
+  <div class='form-group'>
     <%= f.label :capacity %><br>
     <%= f.number_field :capacity, min: 0, step: 1 %>
   </div>
 
-  <div class='field'>
+  <div class='form-group'>
     <%= f.label :facilities %><br>
     <%= f.text_area :facilities %>
   </div>

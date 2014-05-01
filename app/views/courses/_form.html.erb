@@ -11,9 +11,24 @@
     </div>
   <% end %>
 
-  <div class='field'>
+  <div class='form-group'>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :duration_weeks %><br>
+    <%= f.number_field :duration_weeks, min:1, step: 1%>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :instructors_req %><br>
+    <%= f.number_field :instructors_req, min: 1, step: 1 %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :price %><br>
+    <%= f.number_field :price, min: 0 %>
   </div>
 
   <div class="actions">

@@ -1,0 +1,8 @@
+<h1>Add a New Booking <small>- <%= @classroom.details %> | <%= @cohort.name %></small></h1>
+
+<p>Course duration requirement: <%= @cohort.course.duration_weeks %></p>
+<p>Cohort intended start date: <%= @cohort.start_date %></p>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', dashboard_index_path %>

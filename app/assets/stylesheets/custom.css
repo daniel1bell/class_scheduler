@@ -31,6 +31,11 @@ menu form {
   display: inline;
 }
 
+.booking_req {
+  display: inline-block;
+  margin-right: 10px;
+}
+
 #locations {
   display: inline-block;
   width: 100%;
@@ -76,4 +81,15 @@ menu form {
   width: 50px;
   font-weight: 300;
   margin-top: 20px;
+}
+
+.col_user_actions {
+  width: 100px;
+  text-align: right;
+}
+
+table .btn {
+  font-size: 9px;
+  float: right;
+  margin-left: 3px;
 }

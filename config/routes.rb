@@ -2,6 +2,8 @@ ClassSchedulerApp::Application.routes.draw do
 
   resources :dashboard
 
+  resources :bookings
+
   resources :locations do
     resources :classrooms
   end

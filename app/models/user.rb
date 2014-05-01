@@ -3,4 +3,9 @@ class User < ActiveRecord::Base
   has_many :enrollments
 
   attr_accessible :email, :first_name, :last_name, :role, :username
+
+  def name
+    "#{first_name} #{last_name}"
+  end
+
 end

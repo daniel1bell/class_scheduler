@@ -5,7 +5,6 @@ class Classroom < ActiveRecord::Base
 
   attr_accessible :capacity, :facilities, :location_id, :name
 
-  private
   def details
     "#{location.name} - #{name}"
   end

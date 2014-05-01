@@ -9,6 +9,7 @@ gem 'pg'
 
 gem 'carrierwave', '0.9.0'
 gem 'rmagick'
+gem 'date-input-rails', '~> 0.0.3'
 
 group :development, :test do
   gem 'pry-rails'

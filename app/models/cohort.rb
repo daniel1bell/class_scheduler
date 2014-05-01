@@ -12,7 +12,4 @@ class Cohort < ActiveRecord::Base
     "#{course.name} - #{iteration}"
   end
 
-  scope :students, where('')
-
-
 end
