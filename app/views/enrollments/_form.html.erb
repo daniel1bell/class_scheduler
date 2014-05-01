@@ -1,0 +1,34 @@
+<%= form_for([@course, @cohort, @enrollment]) do |f| %>
+  <% if @enrollment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@enrollment.errors.count, "error") %> prohibited this enrollment from being saved:</h2>
+
+      <ul>
+      <% @enrollment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='form-group'>
+    <%= f.label :student_id %><br>
+    <%= f.text_field :student_id %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :prework_done %><br>
+    <%= f.check_box :prework_done %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :paid_amount %><br>
+    <%= f.number_field :paid_amount, min: 0 %>
+  </div>
+
+  <%= f.hidden_field :cohort_id %>
+
+  <div class="actions">
+    <%= f.submit :class => 'btn btn-default btn-xs' %>
+  </div>
+<% end %>

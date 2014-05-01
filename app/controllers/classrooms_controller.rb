@@ -3,6 +3,8 @@ class ClassroomsController < ApplicationController
 
   def show
     @classroom = @location.classrooms.find(params[:id])
+    @bookings = @classroom.bookings
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   def new

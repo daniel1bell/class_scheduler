@@ -23,4 +23,13 @@ class Booking < ActiveRecord::Base
       lambda {Date.now}
     end
   end
+
+  def name
+    cohort.name
+  end
+
+  def covers_date?(date)
+    (start_date..end_date).cover?(date)
+  end
+
 end

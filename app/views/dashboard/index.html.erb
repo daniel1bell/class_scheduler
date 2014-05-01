@@ -1,58 +1,8 @@
 <%= render 'new_booking' %>
 <%= link_to 'View Bookings', bookings_path, class: 'btn btn-default btn-xs booking_req' %>
 
-<h2>GA Locations</h2>
-<%= button_to 'Add New Location', new_location_path, method: :get, class: 'btn btn-default btn-xs' %>
+<%= render 'locations' %>
 
-<section id='locations'>
-  <% @locations.each do |location| %>
-  <div class='location_port'>
-    
-    <h3><%= location.name %></h3>
+<%= render 'courses' %>
 
-    <% location.classrooms.each do |classroom| %>
-    <div class='location_classroom_port'>
-      <h4><%= link_to "#{classroom.name}",location_classroom_path(location, classroom)%></h4>
-      <p>Capacity: <%= classroom.capacity %></p>
-      <p>Facilities: <%= classroom.facilities %></p>
-      <p>Total Bookings: <%= classroom.bookings.count %></p>
-    </div>
-    <% end %>
-
-    <%= button_to 'Add Classroom', new_location_classroom_path(location), method: :get, class: 'btn btn-default btn-xs' %>
-    <%= button_to 'Edit', edit_location_path(location), method: :get, class: 'btn btn-default btn-xs' %>
-    <%= button_to 'Delete', location, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
-
-  </div>
-  <% end %>
-</section>
-
-<h2>GA Courses</h2>
-<%= button_to 'Add New Course', new_course_path, method: :get, class: 'btn btn-default btn-xs' %>
-
-<section id='locations'>
-  <% @courses.each do |course| %>
-  <div class='location_port'>
-
-    <h3><%= course.name %></h3>
-    <p>Duration: <%= course.duration_weeks %> weeks</p>
-    <p>Price: <%= number_to_currency(course.price, unit: "£") %> </p>
-    <p>Minimum Instructors: <%= course.instructors_req %></p>
-
-    <% course.cohorts.each do |cohort| %>
-    <div class='course_cohort_port'>
-      <h4><%= link_to "#{cohort.name}",course_cohort_path(course, cohort)%></h4>
-      <p>Start Date: <%= cohort.if_booked %></p>
-      <p>Assigned Instructors: <%= cohort.instructors.count %></p>
-      <p>Enrolled Students: <%= cohort.students.count %></p>
-
-    </div>
-    <% end %>
-
-    <%= button_to 'Add Cohort', new_course_cohort_path(course), method: :get, class: 'btn btn-default btn-xs' %>
-    <%= button_to 'Edit', edit_course_path(course), method: :get, class: 'btn btn-default btn-xs' %>
-    <%= button_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
-
-  </div>
-  <% end %>
-</section>
+<%= render 'users' %>

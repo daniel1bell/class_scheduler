@@ -1,0 +1,37 @@
+<h2>GA Users</h2>
+<%= button_to 'Add New User', new_user_path, method: :get, class: 'btn btn-default btn-xs' %>
+
+<section id='locations'>
+  <div class='cohort_instructors'>
+  
+  <table class='table table-striped'>
+
+    <col class='col_user_name'/>
+    <col class='col_user_email'/>
+    <col class='col_user_cohorts'/>
+    <col class='col_user_role'/>
+    <col class='col_user_actions'/>
+
+    <tr>
+      <th>Name</th>
+      <th>E-Mail</th>
+      <th>Current Cohorts</th>
+      <th>System Role</th>
+      <th><!-- Actions --></th>
+    </tr>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.cohort_relationships %></td>
+        <td><%= user.role %></td>
+        <td>
+          <%= button_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+          <%= button_to 'Edit', edit_user_path(user), method: :get, class: 'btn btn-default btn-xs' %>
+          <%= button_to 'Manage', user_management_path(user), method: :get, class: 'btn btn-warning btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+</section>

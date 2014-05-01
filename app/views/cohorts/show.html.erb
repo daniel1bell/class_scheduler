@@ -7,76 +7,8 @@
 <%= button_to 'Edit', edit_course_cohort_path(@course, @cohort), method: :get, class: 'btn btn-default btn-xs' %>
 <%= button_to 'Delete', [@course, @cohort], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
 
-<div class='cohort_instructors'>
-  <h3><%= @cohort.name %> Instructors</h3>
+<%= render 'cohort_instructors' %>
 
-  <table class='table table-striped'>
-
-    <col class='col_user_name'/>
-    <col class='col_user_email'/>
-    <col class='col_user_role'/>
-    <col class='col_user_actions'/>
-
-    <tr>
-      <th>Name</th>
-      <th>E-Mail</th>
-      <th>Role</th>
-      <th><!-- Actions --></th>
-    </tr>
-    <% @cohort.instructors.each do |instructor| %>
-      <tr>
-        <td><%= instructor.name %></td>
-        <td><%= instructor.email %></td>
-        <td><%= instructor.role %></td>
-        <td>
-          <button class='btn btn-danger btn-xs'>Remove</button>
-          <button class='btn btn-default btn-xs'>Edit</button>
-        </td>
-      </tr>
-    <% end %>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th><button class='btn btn-default btn-xs'>Assign New</button></th>
-    </tr>
-  </table>
-</div>
-
-<div class='cohort_students'>
-  <h3><%= @cohort.name %> Students</h3>
-
-  <table class='table table-striped'>
-
-    <col class='col_user_name'/>
-    <col class='col_user_email'/>
-    <col class='col_user_role'/>
-    <col class='col_user_actions'/>
-
-    <tr>
-      <th>Name</th>
-      <th>E-Mail</th>
-      <th>Role</th>
-      <th><!-- Actions --></th>
-    </tr>
-    <% @cohort.students.each do |student| %>
-      <tr>
-        <td><%= student.name %></td>
-        <td><%= student.email %></td>
-        <td><%= student.role %></td>
-        <td>
-          <button class='btn btn-danger btn-xs'>Remove</button>
-          <button class='btn btn-default btn-xs'>Edit</button>
-        </td>
-      </tr>
-    <% end %>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th><button class='btn btn-default btn-xs'>Enroll New</button></th>
-    </tr>
-  </table>
-</div>
+<%= render 'cohort_students' %>
 
 <%= link_to 'Back', dashboard_index_path %>

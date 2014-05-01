@@ -84,7 +84,7 @@ menu form {
 }
 
 .col_user_actions {
-  width: 100px;
+  width: 140px;
   text-align: right;
 }
 
@@ -92,4 +92,13 @@ table .btn {
   font-size: 9px;
   float: right;
   margin-left: 3px;
+}
+
+#classroom_calendar {
+  float: right;
+  min-height: 380px;
+}
+
+#classroom_bookings_table {
+  clear: both;
 }

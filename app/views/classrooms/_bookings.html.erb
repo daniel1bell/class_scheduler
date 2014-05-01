@@ -1,5 +1,5 @@
 <% if @classroom.bookings.empty? %>
-  <h3>No Bookings to Dsiplay</h3>
+  <h3>No Bookings to Display</h3>
   <p>There are no current bookings for <%= @classroom.details %>.</p>
   <%= link_to 'Add Booking', bookings_path, class: 'btn btn-default btn-xs' %>
 

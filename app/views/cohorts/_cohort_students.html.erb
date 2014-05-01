@@ -1,0 +1,35 @@
+<div class='cohort_students'>
+  <h3><%= @cohort.name %> Students</h3>
+
+  <table class='table table-striped'>
+
+    <col class='col_user_name'/>
+    <col class='col_user_email'/>
+    <col class='col_user_role'/>
+    <col class='col_user_actions'/>
+
+    <tr>
+      <th>Name</th>
+      <th>E-Mail</th>
+      <th>Role</th>
+      <th><!-- Actions --></th>
+    </tr>
+    <% @cohort.students.each do |student| %>
+      <tr>
+        <td><%= student.name %></td>
+        <td><%= student.email %></td>
+        <td><%= student.role %></td>
+        <td>
+          <button class='btn btn-danger btn-xs'>Remove</button>
+          <button class='btn btn-default btn-xs'>Edit</button>
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th><%= link_to 'Enroll New', new_course_cohort_enrollment_path(@course, @cohort), class: 'btn btn-default btn-xs' %>
+    </tr>
+  </table>
+</div>

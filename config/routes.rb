@@ -9,8 +9,15 @@ ClassSchedulerApp::Application.routes.draw do
   end
 
   resources :courses do
-    resources :cohorts
+    resources :cohorts do
+      resources :enrollments
+      resources :instructor_assignments
+    end
   end
+
+  resources :users
+
+  get '/users/:id/manage', to: 'users#manage', as: 'user_management'
 
   root to: 'dashboard#index'
 

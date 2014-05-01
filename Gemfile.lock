@@ -35,10 +35,6 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.0.4)
-    carrierwave (0.9.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      json (>= 1.7)
     coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -104,7 +100,6 @@ GEM
     rake (10.3.1)
     rdoc (3.12.2)
       json (~> 1.4)
-    rmagick (2.13.2)
     sass (3.3.6)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -132,7 +127,6 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  carrierwave (= 0.9.0)
   coffee-rails (~> 3.2.1)
   date-input-rails (~> 0.0.3)
   jquery-rails
@@ -140,6 +134,5 @@ DEPENDENCIES
   pry-rails
   pry-stack_explorer
   rails (= 3.2.17)
-  rmagick
   sass-rails (~> 3.2.3)
   uglifier (>= 1.0.3)

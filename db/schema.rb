@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140428220610) do
+ActiveRecord::Schema.define(:version => 20140501195248) do
 
   create_table "bookings", :force => true do |t|
     t.integer  "cohort_id"
