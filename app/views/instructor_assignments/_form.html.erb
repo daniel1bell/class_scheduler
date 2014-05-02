@@ -1,0 +1,28 @@
+<%= form_for([@course, @cohort, @instructor_assignment]) do |f| %>
+  <% if @instructor_assignment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@instructor_assignment.errors.count, "error") %> prohibited this instructor_assignment from being saved:</h2>
+
+      <ul>
+      <% @instructor_assignment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='form-group'>
+    <% if params[:action] == "edit" %>
+      <h3 id='enrollment_name'><%= @instructor_assignment.name %></h3>
+    <% else %>
+      <%= f.label :instructor_id %><br>
+      <%= f.collection_select(:instructor_id, @instructors, :id, :name) %>
+    <% end %>
+  </div>
+
+  <%= f.hidden_field :cohort_id %>
+
+  <div class="actions">
+    <%= f.submit :class => 'btn btn-default btn-xs' %>
+  </div>
+<% end %>

@@ -1,5 +1,15 @@
 ClassSchedulerApp::Application.routes.draw do
 
+  get "sessions/new"
+  get "sessions/create"
+  get "sessions/destroy"
+
+  get '/signup', to: 'users#new',        as: 'signup'
+  get '/login',  to: 'sessions#new',     as: 'login'
+  delete '/logout', to: 'sessions#destroy', as: 'logout'
+
+  resources :sessions, only: [:new, :create, :destroy]
+
   resources :dashboard
 
   resources :bookings
@@ -19,7 +29,7 @@ ClassSchedulerApp::Application.routes.draw do
 
   get '/users/:id/manage', to: 'users#manage', as: 'user_management'
 
-  root to: 'dashboard#index'
+  root to: 'users#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

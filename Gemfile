@@ -8,6 +8,7 @@ gem 'rails', '3.2.17'
 gem 'pg'
 
 gem 'date-input-rails', '~> 0.0.3'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 group :development, :test do
   gem 'pry-rails'

@@ -1,11 +1,36 @@
 <h2><%= @cohort.name %></h2>
 
-<p>Intended Start Date: <%= @cohort.start_date %></p>
-<p>Assigned Instructors: <%= @cohort.instructors.count %></p>
-<p>Enrolled Students: <%= @cohort.students.count %></p>
+<table class='table table striped'>
+  <tr>
+    <th>Intended Start Date</th>
+    <th>Assigned Instructors</th>
+    <th>Enrolled Students</th>
+  </tr>
+  <tr>
+    <td><%= @cohort.start_date %></td>
+    <td><%= @cohort.instructors.count %></td>
+    <td><%= @cohort.students.count %></td>
+  </tr>
+  <tr>
+    <th>Total Cohort Takings</th>
+    <th>Total Payments Due</th>
+    <th>Outstanding Balance</th>
+  </tr>
+  <tr>
+    <td><%= number_to_currency(@cohort.cohort_payments, unit: '£') %></td>
+    <td><%= number_to_currency(@cohort.cohort_total_payments_due, unit: '£') %></td>
+    <td><%= number_to_currency(@cohort.cohort_outstanding_balance, unit: '£') %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>
+      <%= button_to 'Delete', [@course, @cohort], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+      <%= button_to 'Edit', edit_course_cohort_path(@course, @cohort), method: :get, class: 'btn btn-default btn-xs' %>
+    </td>
+  </tr>
+</table>
 
-<%= button_to 'Edit', edit_course_cohort_path(@course, @cohort), method: :get, class: 'btn btn-default btn-xs' %>
-<%= button_to 'Delete', [@course, @cohort], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
 
 <%= render 'cohort_instructors' %>
 

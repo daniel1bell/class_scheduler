@@ -11,17 +11,21 @@
     <tr>
       <th>Name</th>
       <th>E-Mail</th>
-      <th>Role</th>
+      <th>Other Cohorts</th>
+      <th>Outstanding Balance</th>
+      <th>Prework Status</th>
       <th><!-- Actions --></th>
     </tr>
-    <% @cohort.students.each do |student| %>
+    <% @cohort.enrollments.each do |enrollment| %>
       <tr>
-        <td><%= student.name %></td>
-        <td><%= student.email %></td>
-        <td><%= student.role %></td>
+        <td><%= enrollment.name %></td>
+        <td><%= enrollment.email %></td>
+        <td><%= enrollment.other_cohorts %></td>
+        <td><%= number_to_currency(enrollment.outstanding_course_fee, unit: '£') %></td>
+        <td><%= enrollment.prework %></td>
         <td>
-          <button class='btn btn-danger btn-xs'>Remove</button>
-          <button class='btn btn-default btn-xs'>Edit</button>
+          <%= button_to 'Edit', edit_course_cohort_enrollment_path(@course, @cohort, enrollment), method: :get, class: 'btn btn-warning btn-xs' %>
+          <%= button_to 'Remove', [@course, @cohort, enrollment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
         </td>
       </tr>
     <% end %>
@@ -29,7 +33,9 @@
       <th></th>
       <th></th>
       <th></th>
-      <th><%= link_to 'Enroll New', new_course_cohort_enrollment_path(@course, @cohort), class: 'btn btn-default btn-xs' %>
+      <th></th>
+      <th></th>
+      <th><%= link_to 'Enroll New', new_course_cohort_enrollment_path(@course, @cohort), class: 'btn btn-default btn-xs' %></th>
     </tr>
   </table>
 </div>

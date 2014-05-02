@@ -14,14 +14,14 @@
       <th>Role</th>
       <th><!-- Actions --></th>
     </tr>
-    <% @cohort.instructors.each do |instructor| %>
+    <% @cohort.instructor_assignments.each do |instructor_assignment| %>
       <tr>
-        <td><%= instructor.name %></td>
-        <td><%= instructor.email %></td>
-        <td><%= instructor.role %></td>
+        <td><%= instructor_assignment.name %></td>
+        <td><%= instructor_assignment.email %></td>
+        <td><%= instructor_assignment.role %></td>
         <td>
-          <button class='btn btn-danger btn-xs'>Remove</button>
-          <button class='btn btn-default btn-xs'>Edit</button>
+          <%= button_to 'Edit', edit_course_cohort_instructor_assignment_path(@course, @cohort, instructor_assignment), method: :get, class: 'btn btn-warning btn-xs' %>
+          <%= button_to 'Remove', [@course, @cohort, instructor_assignment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
         </td>
       </tr>
     <% end %>
@@ -29,7 +29,7 @@
       <th></th>
       <th></th>
       <th></th>
-      <th><button class='btn btn-default btn-xs'>Assign New</button></th>
+      <th><%= link_to 'Assign New', new_course_cohort_instructor_assignment_path(@course, @cohort), class: 'btn btn-default btn-xs' %></th>
     </tr>
   </table>
 </div>

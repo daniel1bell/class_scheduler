@@ -13,10 +13,27 @@
     <h1><%= link_to 'Classkeeper', dashboard_index_path %></h1>
     <sub>Because everyone needs to know where to go to learn.</sub>
 
-    <menu>
-      <p>
-      </p>
-    </menu>
+    <nav class="navbar">
+      <div class="left-nav">
+        
+      </div>
+      <div class="right-nav">
+          <% if current_user %>
+            <p>Logged in as <%= current_user.name %></p>
+            <p><small><%= link_to 'Logout', logout_path, method: :delete %></small></p>
+          <% else %>
+            <p><small><%= link_to "Login", login_path %></small></p>
+          <% end %>
+      </div>
+      <div class="clear"></div>
+    </nav>
+    <% flash.each do |name, message| %>
+      <div class='flash-message'>
+        <%= flash- '#{name}' %>
+        <%= message %>
+      </div>
+    <% end %>
+
   </header>
 
   <main>

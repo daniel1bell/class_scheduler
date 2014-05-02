@@ -28,4 +28,20 @@ class Cohort < ActiveRecord::Base
     names.join(', ')
   end
 
+  def cohort_payments
+    student_payments = []
+    enrollments.each do |enrollment|
+      student_payments << enrollment.paid_amount
+    end
+    student_payments.inject{|sum,x| sum + x }
+  end
+
+  def cohort_total_payments_due
+    course.price * students.count
+  end
+
+  def cohort_outstanding_balance
+    cohort_total_payments_due - cohort_payments
+  end
+
 end

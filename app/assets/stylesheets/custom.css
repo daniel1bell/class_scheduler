@@ -12,6 +12,14 @@ header {
   text-align: center;
 }
 
+.right-nav {
+  margin-top: 20px;
+}
+
+.right-nav p {
+  margin: 0;
+}
+
 main {
   width: 70%;
   margin: 0 auto;
@@ -101,4 +109,8 @@ table .btn {
 
 #classroom_bookings_table {
   clear: both;
+}
+
+#enrollment_name {
+  margin: 50px 0 10px 0;
 }

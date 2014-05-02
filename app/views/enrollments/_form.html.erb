@@ -12,8 +12,12 @@
   <% end %>
 
   <div class='form-group'>
-    <%= f.label :student_id %><br>
-    <%= f.text_field :student_id %>
+    <% if params[:action] == "edit" %>
+      <h3 id='enrollment_name'><%= @enrollment.name %></h3>
+    <% else %>
+      <%= f.label :student_id %><br>
+      <%= f.collection_select(:student_id, @students, :id, :name) %>
+    <% end %>
   </div>
 
   <div class='form-group'>

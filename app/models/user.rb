@@ -1,8 +1,14 @@
 class User < ActiveRecord::Base
+  has_secure_password
+
   has_many :instructor_assignments, foreign_key: "instructor_id"
   has_many :enrollments, foreign_key: "student_id"
 
-  attr_accessible :email, :first_name, :last_name, :role, :username
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, presence: true, uniqueness: true
+
+  attr_accessible :email, :first_name, :last_name, :role, :username, :password, :password_confirmation
 
   def name
     "#{first_name} #{last_name}"
