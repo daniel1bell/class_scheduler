@@ -1,7 +1,10 @@
-<h2>GA Users</h2>
-<%= button_to 'Add New User', new_user_path, method: :get, class: 'btn btn-default btn-xs' %>
+<h2 id='dash_port_title'>GA Users</h2>
 
-<section id='locations'>
+<div id='add_new_button'>
+<%= button_to 'Add New User', new_user_path, method: :get, class: 'btn btn-default btn-xs' %>
+</div>
+
+<section id='users'>
   <div class='cohort_instructors'>
   
   <table class='table table-striped'>

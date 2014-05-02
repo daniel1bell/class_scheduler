@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def role?(role)
+    self.role.to_s == role.to_s
+  end
+
   def cohort_relationships
       response = []
       instructor_assignments.each do |instructor_assignment|

@@ -1,8 +1,15 @@
+<div id='dash_new_booking_port'>
 <%= render 'new_booking' %>
-<%= link_to 'View Bookings', bookings_path, class: 'btn btn-default btn-xs booking_req' %>
+
+  <div id='view_bookings_button'>
+  <%= link_to 'View Bookings', bookings_path, class: 'btn btn-default btn-xs booking_req' %>
+  </div>
+</div>
 
 <%= render 'locations' %>
 
 <%= render 'courses' %>
 
-<%= render 'users' %>
+<% if can? :read, User %>
+  <%= render 'users' %>
+<% end %>

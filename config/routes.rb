@@ -29,7 +29,7 @@ ClassSchedulerApp::Application.routes.draw do
 
   get '/users/:id/manage', to: 'users#manage', as: 'user_management'
 
-  root to: 'users#index'
+  root to: 'dashboard#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

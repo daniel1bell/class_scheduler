@@ -8,7 +8,9 @@ sub {
 
 header {
 
-  margin: 50px auto 50px auto;
+  margin: 0 auto 50px auto;
+  padding: 30px 0 20px 0;
+  background-color: rgba(183, 183, 183, 0.5);
   text-align: center;
 }
 
@@ -55,14 +57,14 @@ menu form {
 
 .location_port {
   width: 100%;
-  padding: 1%;
   margin: 10px 0;
   box-sizing: border-box;
   border: 1px solid #eee;
   border-radius: 5px;
   text-align: center;
-  display: inline-block;
+  display: inline-table;
   vertical-align: top;
+  background-color: rgba(183, 183, 183, 0.5);
 }
 
 .location_port h2 {
@@ -88,7 +90,29 @@ menu form {
   font-size: 11px;
   width: 50px;
   font-weight: 300;
-  margin-top: 20px;
+  margin: 10px 0;
+}
+
+.location_port .btn-long {
+  width: 100px;
+}
+
+.location_classroom_port {
+  width: 490px;
+  margin: 5px;
+  display: inline-block;
+  background-color: rgba(255,255,255,0.95);
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.course_cohort_port {
+  width: 490px;
+  margin: 5px;
+  display: inline-block;
+  background-color: rgba(255,255,255,0.95);
+  border-radius: 3px;
+  padding: 5px;
 }
 
 .col_user_actions {
@@ -113,4 +137,18 @@ table .btn {
 
 #enrollment_name {
   margin: 50px 0 10px 0;
+}
+
+#view_bookings_button {
+  float: right;
+  margin-top: -35px;
+}
+
+#add_new_button {
+  float: right;
+  margin-top: 30px;
+}
+
+#dash_port_title {
+  float: left;
 }
