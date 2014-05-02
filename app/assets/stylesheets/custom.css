@@ -80,7 +80,6 @@ menu form {
   font-weight: 300;
 }
 
-
 .location_port form {
   display: inline-block;
 }
@@ -126,6 +125,10 @@ table .btn {
   margin-left: 3px;
 }
 
+#classroom_show_buttons form {
+  display: inline-block;
+}
+
 #classroom_calendar {
   float: right;
   min-height: 380px;
@@ -151,4 +154,11 @@ table .btn {
 
 #dash_port_title {
   float: left;
+}
+
+#location_details p {
+  color: black;
+  font-weight: 400;
+  display: inline-block;
+  margin: 10px 10px 20px 10px; 
 }

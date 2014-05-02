@@ -9,7 +9,9 @@ class Cohort < ActiveRecord::Base
 
   
   def name
-    "#{course.name} - #{iteration}"
+    if course
+      "#{course.name} - #{iteration}"
+    end
   end
 
   def if_booked
@@ -29,19 +31,25 @@ class Cohort < ActiveRecord::Base
   end
 
   def cohort_payments
-    student_payments = []
-    enrollments.each do |enrollment|
-      student_payments << enrollment.paid_amount
+    if !enrollments.empty?
+      student_payments = []
+      enrollments.each do |enrollment|
+        student_payments << enrollment.paid_amount
+      end
+      student_payments.inject{|sum,x| sum + x }
     end
-    student_payments.inject{|sum,x| sum + x }
   end
 
   def cohort_total_payments_due
-    course.price * students.count
+    if !enrollments.empty?
+      course.price * students.count
+    end
   end
 
   def cohort_outstanding_balance
-    cohort_total_payments_due - cohort_payments
+    if !enrollments.empty?
+      cohort_total_payments_due - cohort_payments
+    end
   end
 
 end

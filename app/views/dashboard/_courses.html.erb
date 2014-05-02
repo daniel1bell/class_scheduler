@@ -9,9 +9,11 @@
   <div class='location_port'>
 
     <h3><%= course.name %></h3>
-    <p>Duration: <%= course.duration_weeks %> weeks</p>
-    <p>Price: <%= number_to_currency(course.price, unit: "£") %> </p>
-    <p>Minimum Instructors: <%= course.instructors_req %></p>
+    <div id='location_details'>
+      <p>Duration: <%= course.duration_weeks %> weeks</p>
+      <p>Price: <%= number_to_currency(course.price, unit: "£") %> </p>
+      <p>Minimum Instructors: <%= course.instructors_req %></p>
+    </div>
 
     <% course.cohorts.each do |cohort| %>
     <div class='course_cohort_port'>

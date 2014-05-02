@@ -1,14 +1,16 @@
-<section id='locations'>
 <h2 id='dash_port_title'>GA Locations</h2>
 
 <div id='add_new_button'>
 <%= button_to 'Add New Location', new_location_path, method: :get, class: 'btn btn-default btn-xs' %>
 </div>
 
+<section id='locations'>
   <% @locations.each do |location| %>
   <div class='location_port'>
     
     <h3><%= location.name %></h3>
+    <div id='location_details'>
+    </div>
 
     <% location.classrooms.each do |classroom| %>
     <div class='location_classroom_port'>
@@ -23,7 +25,7 @@
       <%= button_to 'Add Classroom', new_location_classroom_path(location), method: :get, class: 'btn btn-default btn-xs btn-long' %>
       <%= button_to 'Edit', edit_location_path(location), method: :get, class: 'btn btn-default btn-xs' %>
       <%= button_to 'Delete', location, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
-    <div>
+    </div>
 
   </div>
   <% end %>
