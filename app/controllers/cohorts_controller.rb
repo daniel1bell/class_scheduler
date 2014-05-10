@@ -1,5 +1,7 @@
 class CohortsController < ApplicationController
   before_filter :load_course
+  load_and_authorize_resource :course
+  load_and_authorize_resource :cohort, :through => :course
 
   def show
     @cohort = @course.cohorts.find(params[:id])

@@ -1,5 +1,8 @@
 class InstructorAssignmentsController < ApplicationController
   before_filter :load_course, :load_cohort
+  load_and_authorize_resource :course
+  load_and_authorize_resource :cohort, :through => :course
+  load_and_authorize_resource :instructor_assignment, :through => :cohort
 
   def new
     @instructor_assignment = @cohort.instructor_assignments.build

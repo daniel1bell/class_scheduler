@@ -3,12 +3,20 @@ class Ability
 
   def initialize(user)
 
-    user ||= User.new
+    user ||= User.new # guest user
 
     if user.role? :admin
       can :manage, :all
     elsif user.role? :instructor
       can :read, :all
+    elsif user.role? :user
+      can :read, Dashboard
+      can :read, User do |other_user|
+        user.cohorts.any? {|cohort| cohort.students.include?(other_user)}
+      end
+      can :read, Cohort do |cohort|
+        cohort && cohort.students.include?(user) || cohort.instructors.include?(user)
+      end
     end
 
 

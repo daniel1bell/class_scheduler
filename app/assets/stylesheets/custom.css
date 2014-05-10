@@ -54,6 +54,11 @@ menu form {
   border-bottom: 3px solid gray;
 }
 
+#dash_new_booking_port {
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+  border-bottom: 3px solid gray;
+}
 
 .location_port {
   width: 100%;
@@ -97,7 +102,7 @@ menu form {
 }
 
 .location_classroom_port {
-  width: 490px;
+  width: 480px;
   margin: 5px;
   display: inline-block;
   background-color: rgba(255,255,255,0.95);
@@ -142,9 +147,13 @@ table .btn {
   margin: 50px 0 10px 0;
 }
 
-#view_bookings_button {
+#view_bookings_button_frame {
   float: right;
   margin-top: -35px;
+}
+
+#view_bookings_button {
+  margin-right: 0;
 }
 
 #add_new_button {

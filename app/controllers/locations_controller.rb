@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  load_and_authorize_resource :location
 
   def index
     @locations = Location.all  

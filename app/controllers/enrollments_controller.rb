@@ -1,5 +1,8 @@
 class EnrollmentsController < ApplicationController
   before_filter :load_course, :load_cohort
+  load_and_authorize_resource :course
+  load_and_authorize_resource :cohort, :through => :course
+  load_and_authorize_resource :enrollment, :through => :cohort
 
   def new
     @enrollment = @cohort.enrollments.build

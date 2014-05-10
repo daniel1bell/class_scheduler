@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  has_many :instructor_assignments, foreign_key: "instructor_id"
-  has_many :enrollments, foreign_key: "student_id"
+  has_many :cohorts, through: :enrollments
+  has_many :instructor_assignments, foreign_key: "instructor_id", dependent: :destroy
+  has_many :enrollments, foreign_key: "student_id", dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true

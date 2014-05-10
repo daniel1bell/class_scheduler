@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+  load_and_authorize_resource :course
 
   def index
     @courses = Course.all  

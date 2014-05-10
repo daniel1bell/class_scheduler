@@ -1,5 +1,7 @@
 class ClassroomsController < ApplicationController
   before_filter :load_location
+  load_and_authorize_resource :location
+  load_and_authorize_resource :classroom, :through => :location
 
   def show
     @classroom = @location.classrooms.find(params[:id])
