@@ -24,18 +24,22 @@
         <td><%= number_to_currency(enrollment.outstanding_course_fee, unit: '£') %></td>
         <td><%= enrollment.prework %></td>
         <td>
-          <%= button_to 'Edit', edit_course_cohort_enrollment_path(@course, @cohort, enrollment), method: :get, class: 'btn btn-warning btn-xs' %>
-          <%= button_to 'Remove', [@course, @cohort, enrollment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+          <% if can? :manage, Enrollment %>
+            <%= button_to 'Edit', edit_course_cohort_enrollment_path(@course, @cohort, enrollment), method: :get, class: 'btn btn-warning btn-xs' %>
+            <%= button_to 'Remove', [@course, @cohort, enrollment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+          <% end %>
         </td>
       </tr>
     <% end %>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th><%= link_to 'Enroll New', new_course_cohort_enrollment_path(@course, @cohort), class: 'btn btn-default btn-xs' %></th>
-    </tr>
+    <% if can? :manage, Enrollment %>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th><%= link_to 'Enroll New', new_course_cohort_enrollment_path(@course, @cohort), class: 'btn btn-default btn-xs' %></th>
+      </tr> 
+    <% end %>
   </table>
 </div>

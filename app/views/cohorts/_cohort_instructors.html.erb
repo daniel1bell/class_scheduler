@@ -20,16 +20,20 @@
         <td><%= instructor_assignment.email %></td>
         <td><%= instructor_assignment.role %></td>
         <td>
-          <%= button_to 'Edit', edit_course_cohort_instructor_assignment_path(@course, @cohort, instructor_assignment), method: :get, class: 'btn btn-warning btn-xs' %>
-          <%= button_to 'Remove', [@course, @cohort, instructor_assignment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+          <% if can? :manage, InstructorAssignment %>
+            <%= button_to 'Edit', edit_course_cohort_instructor_assignment_path(@course, @cohort, instructor_assignment), method: :get, class: 'btn btn-warning btn-xs' %>
+            <%= button_to 'Remove', [@course, @cohort, instructor_assignment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+          <% end %>
         </td>
       </tr>
     <% end %>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th><%= link_to 'Assign New', new_course_cohort_instructor_assignment_path(@course, @cohort), class: 'btn btn-default btn-xs' %></th>
-    </tr>
+    <% if can? :manage, InstructorAssignment %>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th><%= link_to 'Assign New', new_course_cohort_instructor_assignment_path(@course, @cohort), class: 'btn btn-default btn-xs' %></th>
+      </tr>
+    <% end %>
   </table>
 </div>

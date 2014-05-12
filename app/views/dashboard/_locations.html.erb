@@ -1,8 +1,10 @@
 <h2 id='dash_port_title'>GA Locations</h2>
 
-<div id='add_new_button'>
-<%= button_to 'Add New Location', new_location_path, method: :get, class: 'btn btn-default btn-xs' %>
-</div>
+<% if can? :manage, Location %>
+  <div id='add_new_button'>
+  <%= button_to 'Add New Location', new_location_path, method: :get, class: 'btn btn-default btn-xs' %>
+  </div>
+<% end %>
 
 <section id='locations'>
   <% @locations.each do |location| %>
@@ -22,9 +24,11 @@
     <% end %>
 
     <div class='port_buttons'>
-      <%= button_to 'Add Classroom', new_location_classroom_path(location), method: :get, class: 'btn btn-default btn-xs btn-long' %>
-      <%= button_to 'Edit', edit_location_path(location), method: :get, class: 'btn btn-default btn-xs' %>
-      <%= button_to 'Delete', location, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+      <% if can? :manage, Location %>
+        <%= button_to 'Add Classroom', new_location_classroom_path(location), method: :get, class: 'btn btn-default btn-xs btn-long' %>
+        <%= button_to 'Edit', edit_location_path(location), method: :get, class: 'btn btn-default btn-xs' %>
+        <%= button_to 'Delete', location, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+      <% end %>
     </div>
 
   </div>

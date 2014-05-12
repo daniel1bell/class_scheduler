@@ -21,14 +21,16 @@
     <td><%= number_to_currency(@cohort.cohort_total_payments_due, unit: '£') %></td>
     <td><%= number_to_currency(@cohort.cohort_outstanding_balance, unit: '£') %></td>
   </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td>
-      <%= button_to 'Delete', [@course, @cohort], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
-      <%= button_to 'Edit', edit_course_cohort_path(@course, @cohort), method: :get, class: 'btn btn-default btn-xs' %>
-    </td>
-  </tr>
+  <% if can? :manage, Cohort %>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>
+        <%= button_to 'Delete', [@course, @cohort], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+        <%= button_to 'Edit', edit_course_cohort_path(@course, @cohort), method: :get, class: 'btn btn-default btn-xs' %>
+      </td>
+    </tr>
+  <% end %>
 </table>
 
 

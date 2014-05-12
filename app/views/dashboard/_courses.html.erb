@@ -1,8 +1,10 @@
 <h2 id='dash_port_title'>GA Courses</h2>
 
-<div id='add_new_button'>
-<%= button_to 'Add New Course', new_course_path, method: :get, class: 'btn btn-default btn-xs' %>
-</div>
+<% if can? :manage, Course %>
+  <div id='add_new_button'>
+  <%= button_to 'Add New Course', new_course_path, method: :get, class: 'btn btn-default btn-xs' %>
+  </div>
+<% end %>
 
 <section id='locations'>
   <% @courses.each do |course| %>
@@ -26,9 +28,11 @@
     <% end %>
 
     <div class='port_buttons'>
-      <%= button_to 'Add Cohort', new_course_cohort_path(course), method: :get, class: 'btn btn-default btn-xs btn-long' %>
-      <%= button_to 'Edit', edit_course_path(course), method: :get, class: 'btn btn-default btn-xs' %>
-      <%= button_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+      <% if can? :manage, Course %>
+        <%= button_to 'Add Cohort', new_course_cohort_path(course), method: :get, class: 'btn btn-default btn-xs btn-long' %>
+        <%= button_to 'Edit', edit_course_path(course), method: :get, class: 'btn btn-default btn-xs' %>
+        <%= button_to 'Delete', course, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+      <% end %>
     </div>
 
   </div>

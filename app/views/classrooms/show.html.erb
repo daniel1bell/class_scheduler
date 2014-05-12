@@ -7,10 +7,12 @@
 <p>Capacity: <%= @classroom.capacity %></p>
 <p>Facilities: <%= @classroom.facilities %></p>
 
-<div id='classroom_show_buttons'>
-<%= button_to 'Edit', edit_location_classroom_path(@location, @classroom), method: :get, class: 'btn btn-default btn-xs' %>
-<%= button_to 'Delete', [@location, @classroom], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
-<div>
+<% if can? :manage, Classroom %>
+  <div id='classroom_show_buttons'>
+  <%= button_to 'Edit', edit_location_classroom_path(@location, @classroom), method: :get, class: 'btn btn-default btn-xs' %>
+  <%= button_to 'Delete', [@location, @classroom], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+  <div>
+<% end %>
 
 <div id='classroom_bookings_table'>
 <%= render 'bookings' %>

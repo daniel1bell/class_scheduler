@@ -1,7 +1,9 @@
 <% if @classroom.bookings.empty? %>
   <h3>No Bookings to Display</h3>
   <p>There are no current bookings for <%= @classroom.details %>.</p>
-  <%= link_to 'Add Booking', bookings_path, class: 'btn btn-default btn-xs' %>
+  <% if can? :manage, Booking %>
+    <%= link_to 'Add Booking', bookings_path, class: 'btn btn-default btn-xs' %>
+  <% end %>
 
 <% else %>
 
@@ -24,7 +26,7 @@
       </tr>
       <% @classroom.bookings.each do |booking| %>
         <tr>
-          <td><%= booking.cohort.name %></td>
+          <td><%= link_to booking.cohort.name, course_cohort_path(booking.cohort.course, booking.cohort) %></td>
           <td><%= booking.start_date %></td>
           <td><%= booking.end_date %></td>
           <td><%= booking.cohort.instructor_names %></td>

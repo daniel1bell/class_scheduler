@@ -1,8 +1,10 @@
 <h2 id='dash_port_title'>GA Users</h2>
 
-<div id='add_new_button'>
-<%= button_to 'Add New User', new_user_path, method: :get, class: 'btn btn-default btn-xs' %>
-</div>
+<% if can? :manage, User %>
+  <div id='add_new_button'>
+  <%= button_to 'Add New User', new_user_path, method: :get, class: 'btn btn-default btn-xs' %>
+  </div>
+<% end %>
 
 <section id='users'>
   <div class='cohort_instructors'>
@@ -27,11 +29,12 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= user.cohort_relationships %></td>
-        <td><%= user.role %></td>
+        <td><%= user.role.capitalize %></td>
         <td>
-          <%= button_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
-          <%= button_to 'Edit', edit_user_path(user), method: :get, class: 'btn btn-default btn-xs' %>
-          <%= button_to 'Manage', user_management_path(user), method: :get, class: 'btn btn-warning btn-xs' %>
+          <% if can? :manage, User %>
+            <%= button_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+            <%= button_to 'Edit', edit_user_path(user), method: :get, class: 'btn btn-default btn-xs' %>
+          <% end %>
         </td>
       </tr>
     <% end %>

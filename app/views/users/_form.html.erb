@@ -36,6 +36,13 @@
     <%= f.password_field :password_confirmation %>
   </div>
 
+  <% if can? :manage, User %>
+    <div class='form-group'>
+      <%= f.label :role %><br>
+      <%= f.select( :role, ['admin', 'instructor', 'student']) %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit :class => 'btn btn-default btn-xs' %>
   </div>

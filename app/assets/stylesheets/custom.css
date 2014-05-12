@@ -89,15 +89,18 @@ menu form {
   display: inline-block;
 }
 
-.location_port .btn {
+.port_buttons {
+  margin: 10px 0;  
+}
+
+.port_buttons .btn {
   padding: 0;
   font-size: 11px;
   width: 50px;
   font-weight: 300;
-  margin: 10px 0;
 }
 
-.location_port .btn-long {
+.port_buttons .btn-long {
   width: 100px;
 }
 
