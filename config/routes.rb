@@ -8,6 +8,8 @@ ClassSchedulerApp::Application.routes.draw do
   get '/login',  to: 'sessions#new',     as: 'login'
   delete '/logout', to: 'sessions#destroy', as: 'logout'
 
+  get '/redraw_calendar', to: 'dashboard#redraw_calendar', as: 'redraw_calendar'
+
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :dashboard

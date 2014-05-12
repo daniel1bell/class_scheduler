@@ -4,19 +4,22 @@ myApp.toggleNew = function() {
   $('#dash_new_booking_port').slideToggle("slow")
 }
 
-myApp.calendarDateHandler = function(event) {
-  event.preventDefault();
+// myApp.calendarDateHandler = function(event) {
+//   event.preventDefault();
 
-  var ajaxOptions = {
-  url: "/",
-  type: 'GET',
+//   var ajaxOptions = {
+//   url: "/",
+//   type: 'GET',
     
-  }
-}
+//   }
+
+//   $.ajax(ajaxOptions).
+//     done()
+// }
 
 myApp.setup = function() {
   $('#new_bookings_button').on('click', myApp.toggleNew);
-  $('#calendar_month_forward').on('click', myApp.calendarDateHandler);
+  // $('#calendar_month_forward').on('click', myApp.calendarDateHandler);
 
 }
 

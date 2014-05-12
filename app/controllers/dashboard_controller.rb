@@ -8,6 +8,17 @@ class DashboardController < ApplicationController
 
     # for the calendar plugin
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
-  end    
+  end
+
+  def redraw_calendar
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
+
+    respond_to do |format|
+      format.js
+      format.html {
+        render text: 'Hello World'
+      }
+    end
+  end
 
 end

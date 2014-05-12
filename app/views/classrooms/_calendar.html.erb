@@ -1,11 +1,9 @@
 <div id='calendar'>
   <h2 id="month">
-    <%= link_to "<", date: @date.prev_month %>
+    <%= link_to '<', redraw_calendar_path(date: @date.prev_month), remote: true %>
     <%= @date.strftime("%B %Y") %>
-    <%= link_to ">", date: @date.next_month %>
-    <button class="btn btn-default btn-xs" id="calendar_month_forward">></button>
-    <br>
-    <small><%= link_to "Current Month", date: Date.today %></small>
+    <%= link_to '>', redraw_calendar_path(date: @date.next_month), remote: true %>
+    <p><small><%= link_to "Current Month", redraw_calendar_path(date: Date.today), remote: true %></small></p>
   </h2>
 
   <%= calendar @date do |date| %>
