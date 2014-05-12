@@ -1,5 +1,9 @@
 <h2><small>New Booking</small></h2>
 
+<div id='classroom_calendar'>
+<%= render 'classrooms/calendar' %>
+</div>
+
 <%= form_tag(new_booking_path, method: 'get') do %>
 
   <div class='form-group booking_req'>
@@ -17,3 +21,5 @@
   </div>
 
 <% end %>
+
+<div style="clear: both;"></div>

@@ -5,6 +5,9 @@ class DashboardController < ApplicationController
     @locations = Location.all
     @courses = Course.all
     @users = User.all
+
+    # for the calendar plugin
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end    
 
 end

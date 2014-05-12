@@ -1,14 +1,18 @@
 <% if can? :read, Booking %>
   <h2>Bookings</h2>
 
-  <div id='dash_new_booking_port'>
-  <% if can? :manage, Booking %>
-    <%= render 'new_booking' %>
-  <% end %>
-    <div id='view_bookings_button_frame'>
+  <div id='view_bookings_button_frame'>
+    <% if can? :manage, Booking %>
+      <button class='btn btn-success btn-xs booking_req' id="new_bookings_button">Add Booking</button>
+    <% end %>
     <%= link_to 'View Bookings', bookings_path, class: 'btn btn-default btn-xs booking_req', id: "view_bookings_button" %>
-    </div>
   </div>
+
+  <% if can? :manage, Booking %>
+  <div id='dash_new_booking_port'>
+    <%= render 'new_booking' %>
+  </div>
+  <% end %>
 <% end %>
 
 <% if can? :read, Location %>

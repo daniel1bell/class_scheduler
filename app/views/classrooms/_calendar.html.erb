@@ -3,17 +3,18 @@
     <%= link_to "<", date: @date.prev_month %>
     <%= @date.strftime("%B %Y") %>
     <%= link_to ">", date: @date.next_month %>
+    <button class="btn btn-default btn-xs" id="calendar_month_forward">></button>
     <br>
     <small><%= link_to "Current Month", date: Date.today %></small>
   </h2>
 
   <%= calendar @date do |date| %>
     <%= date.day %>
-    <% @classroom.bookings.each do |booking| %>
-      <% if booking.covers_date?(date) %>
-        <p><small><%= booking.name %></small></p>
-      <% end %>
-    <% end %>
+    <%# @classroom.bookings.each do |booking| %>
+      <%# if booking.covers_date?(date) %>
+        <p><small><%#= booking.name %></small></p>
+      <%# end %>
+    <%# end %>
   <% end %>
 
 </div>

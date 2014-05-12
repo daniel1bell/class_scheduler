@@ -55,9 +55,15 @@ menu form {
 }
 
 #dash_new_booking_port {
-  padding-bottom: 25px;
+  padding: 0 15px 25px 15px;
   margin-bottom: 25px;
   border-bottom: 3px solid gray;
+  background-color: #dff0d8;
+  display: none;
+}
+
+#dash_new_booking_port h2 {
+  margin-top: 0;
 }
 
 .location_port {
