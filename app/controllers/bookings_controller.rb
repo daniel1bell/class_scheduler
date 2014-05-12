@@ -3,6 +3,9 @@ class BookingsController < ApplicationController
 
   def index
     @classrooms = Classroom.all
+
+    # for the calendar plugin
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   def new
