@@ -20,7 +20,7 @@
       <div class="right-nav">
           <% if current_user %>
             <p>Logged in as <%= current_user.name %></p>
-            <p><small><%= link_to 'Logout', destroy_user_session_path, method: :delete %></small></p>
+            <p><small><%= link_to 'Logout', destroy_user_session_path, method: :delete %> or <%= link_to 'Change Password', edit_user_registration_path %></small></p>
           <% else %>
             <p><small><%= link_to "Login", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %></small></p>
           <% end %>

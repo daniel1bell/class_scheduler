@@ -12,12 +12,10 @@ class DashboardController < ApplicationController
 
   def redraw_calendar
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
+    @classroom = params[:classroom_id]
 
     respond_to do |format|
       format.js
-      format.html {
-        render text: 'Hello World'
-      }
     end
   end
 

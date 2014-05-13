@@ -8,11 +8,13 @@
 
   <%= calendar @date do |date| %>
     <%= date.day %>
-    <%# @classroom.bookings.each do |booking| %>
-      <%# if booking.covers_date?(date) %>
-        <p><small><%#= booking.name %></small></p>
-      <%# end %>
-    <%# end %>
+    <% if @classroom %>
+      <% @classroom.bookings.each do |booking| %>
+        <% if booking.covers_date?(date) %>
+          <p><small><%= booking.name %></small></p>
+        <% end %>
+      <% end %>
+    <% end %>
   <% end %>
 
 </div>
