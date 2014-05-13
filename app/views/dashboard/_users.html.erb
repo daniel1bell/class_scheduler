@@ -29,7 +29,11 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= user.cohort_relationships %></td>
-        <td><%= user.role.capitalize %></td>
+        <td>
+          <% if user.role %>
+            <%= user.role.capitalize %>
+          <% end %>
+        </td>
         <td>
           <% if can? :manage, User %>
             <%= button_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>

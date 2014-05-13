@@ -1,16 +1,8 @@
 ClassSchedulerApp::Application.routes.draw do
 
-  get "sessions/new"
-  get "sessions/create"
-  get "sessions/destroy"
-
-  get '/signup', to: 'users#new',        as: 'signup'
-  get '/login',  to: 'sessions#new',     as: 'login'
-  delete '/logout', to: 'sessions#destroy', as: 'logout'
+  devise_for :users
 
   get '/redraw_calendar', to: 'dashboard#redraw_calendar', as: 'redraw_calendar'
-
-  resources :sessions, only: [:new, :create, :destroy]
 
   resources :dashboard
 
@@ -28,8 +20,6 @@ ClassSchedulerApp::Application.routes.draw do
   end
 
   resources :users
-
-  get '/users/:id/manage', to: 'users#manage', as: 'user_management'
 
   root to: 'dashboard#index'
 

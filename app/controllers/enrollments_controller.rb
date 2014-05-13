@@ -6,7 +6,7 @@ class EnrollmentsController < ApplicationController
 
   def new
     @enrollment = @cohort.enrollments.build
-    @students = User.where(role: 'Student')
+    @students = User.where(role: 'student')
   end
 
   def create

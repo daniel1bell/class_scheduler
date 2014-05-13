@@ -6,7 +6,7 @@ class InstructorAssignmentsController < ApplicationController
 
   def new
     @instructor_assignment = @cohort.instructor_assignments.build
-    @instructors = User.where(role: 'Instructor')
+    @instructors = User.where(role: 'instructor')
   end
 
   def create
