@@ -11,6 +11,7 @@
  *= require_self
  *= require normalize
  *= require bootstrap
+ *= require dashboard
  *= require custom
  *= require_tree .
  */

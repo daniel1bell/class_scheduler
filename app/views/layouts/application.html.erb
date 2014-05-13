@@ -10,36 +10,77 @@
 <body>
 
   <header>
-    <h1><%= link_to 'Classkeeper', dashboard_index_path %></h1>
-    <sub>Because everyone needs to know where to go to learn.</sub>
-
-    <nav class="navbar">
-      <div class="left-nav">
-        
-      </div>
-      <div class="right-nav">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to 'GA Classkeeper', dashboard_index_path, class: "navbar-brand" %>
           <% if current_user %>
-            <p>Logged in as <%= current_user.name %></p>
-            <p><small><%= link_to 'Logout', destroy_user_session_path, method: :delete %> or <%= link_to 'Change Password', edit_user_registration_path %></small></p>
-          <% else %>
-            <p><small><%= link_to "Login", new_user_session_path %> or <%= link_to "Sign Up", new_user_registration_path %></small></p>
+            <span class="navbar-text"><small>Logged in as <%= current_user.name %> <%= "| " + current_user.role.capitalize if current_user.role %></small></span>
           <% end %>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to 'Dashboard', dashboard_index_path %></li>
+            <% if current_user %>
+              <li><%= link_to 'Profile', edit_user_registration_path %><li>
+              <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Login", new_user_session_path %></li>
+              <li><%= link_to "Sign Up", new_user_registration_path %></li>
+            <% end %>
+          </ul>
+        </div>
       </div>
-      <div class="clear"></div>
-    </nav>
-    <% flash.each do |name, message| %>
-      <div class='flash-message'>
-        <%= message %>
-        <%#= notice %>
-        <%#= alert %>
-      </div>
-    <% end %>
+      <% flash.each do |name, message| %>
+        <div class='flash-message'>
+          <p><%= message %></p>
+          <%#= notice %>
+          <%#= alert %>
+        </div>
+      <% end %>
+    </div>
 
   </header>
 
-  <main>
-    <%= yield %>
-  </main>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <li class="active"><%= link_to 'Dashboard Home', dashboard_index_path %></li>
+          <li><a href="#">Locations</a></li>
+          <li><a href="#">Courses</a></li>
+        </ul>
+        <ul class="nav nav-sidebar">
+          <li><a href="#">Users</a></li>
+          <form class="navbar-form">
+            <input type="text" id="user_search" class="form-control" placeholder="Search Users...">
+          </form>
+        </ul>
+        <ul class="nav nav-sidebar">
+          <li><h3>Current Info</h3></li>
+          <li><p>Statistic 1</p></li>
+          <li><p>Statistic 2</p></li>
+        </ul>
+        <ul class="nav nav-sidebar">
+          <li><h3>Admin Notes</h3></li>
+          <li><p>Note 1</p></li>
+          <li><p>Note 2</p></li>
+        </ul>
+      </div>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header">GA Dashboard</h1>
+
+        <%= yield %>
+
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
