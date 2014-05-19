@@ -8,6 +8,8 @@ gem 'rails', '3.2.17'
 gem 'pg'
 
 gem 'date-input-rails', '~> 0.0.3'
+gem 'active_model_serializers'
+
 gem 'devise'
 gem 'cancan'
 
