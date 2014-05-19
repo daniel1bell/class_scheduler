@@ -6,9 +6,7 @@
   </div>
 <% end %>
 
-<section id='users'>
-  <div class='cohort_instructors'>
-  
+<section id='users_table'>
   <table class='table table-striped'>
 
     <col class='col_user_name'/>
@@ -24,24 +22,8 @@
       <th>System Role</th>
       <th><!-- Actions --></th>
     </tr>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.cohort_relationships %></td>
-        <td>
-          <% if user.role %>
-            <%= user.role.capitalize %>
-          <% end %>
-        </td>
-        <td>
-          <% if can? :manage, User %>
-            <%= button_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
-            <%= button_to 'Edit', edit_user_path(user), method: :get, class: 'btn btn-default btn-xs' %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
+    <div id="users">
+      <%= render @users %>
+    </div>
   </table>
-</div>
 </section>

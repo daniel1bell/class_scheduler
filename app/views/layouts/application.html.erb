@@ -53,14 +53,16 @@
       <div class="col-sm-3 col-md-2 sidebar">
         <ul class="nav nav-sidebar">
           <li class="active"><%= link_to 'Dashboard Home', dashboard_index_path %></li>
-          <li><a href="#">Locations</a></li>
-          <li><a href="#">Courses</a></li>
+          <li><%= link_to 'Locations', locations_path %></li>
+          <li><%= link_to 'Courses', courses_path %></li>
         </ul>
         <ul class="nav nav-sidebar">
-          <li><a href="#">Users</a></li>
-          <form class="navbar-form">
-            <input type="text" id="user_search" class="form-control" placeholder="Search Users...">
-          </form>
+          <li><%= link_to 'Users', users_path %></li>
+          <%= form_tag users_path, method: :get, remote: true, id: "search_form", class: "navbar-form" do %>
+            <div class="form-group">
+              <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search Users..." %>
+            </div>
+          <% end %>
         </ul>
         <ul class="nav nav-sidebar">
           <li><h3>Current Info</h3></li>
